@@ -4,11 +4,12 @@ const colors = ["aqua", "aquamarine", "crimson", "blue", "dodgerblue", "gold", "
 const colorsPicklist = [...colors, ...colors];
 const tileCount = colorsPicklist.length;
 
-// Game state
+//variables
 let revealedCount = 0;
 let activeTile = null;
 let awaitingEndOfMove = false;
 
+// Game state
 function buildTile(color) {
 	const element = document.createElement("div");
 
