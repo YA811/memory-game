@@ -12,4 +12,4 @@ it's already written when you start the game, but it's basically just matching t
 ## Technologies used is HTML, CSS and JavaScript.
 
 ## for the future enhancement:
- I'll add a timer so I can make the game more harder, I was going go do that but there was no time because I was working on another game and I change it, but yeah adding a timer and reset button maybe would be good.
+ So I added a timer already and some buttons, maybe for future enhancement also I will add levels to make it more and more harder.

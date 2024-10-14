@@ -8,6 +8,11 @@ const tileCount = colorsPicklist.length;
 let revealedCount = 0;
 let activeTile = null;
 let awaitingEndOfMove = false;
+let timerInterval;
+let timeRemaining = 60;
+
+
+
 
 // Game state
 function buildTile(color) {
@@ -48,7 +53,8 @@ function buildTile(color) {
 			revealedCount += 2;
 
 			if (revealedCount === tileCount) {
-				alert("You win! Refresh to start again.");
+				stopTimer();
+				alert("You win! Click reset to start again.");
 			}
 
 			return;
@@ -68,6 +74,33 @@ function buildTile(color) {
 	return element;
 }
 
+// Start timer
+function startTimer(){
+	timeRemaining= 60;
+	document.getElementById('timer').innerText = `Time: ${timeRemaining}s`;
+
+	timerInterval = setInterval(()=>{
+		timeRemaining--;
+		document.getElementById('timer').innerText = `Time: ${timeRemaining}s`;
+
+		if(timeRemaining<=0){
+			clearInterval(timerInterval);
+			endGame();
+		}
+	}, 1000);
+}
+
+function stopTimer(){
+	clearInterval(timerInterval);
+}
+
+function endGame(){
+    stopTimer();
+    alert("Time's up! you lost!");
+}
+
+
+
 // Build up tiles
 for (let i = 0; i < tileCount; i++) {
 	const randomIndex = Math.floor(Math.random() * colorsPicklist.length);
@@ -77,3 +110,13 @@ for (let i = 0; i < tileCount; i++) {
 	colorsPicklist.splice(randomIndex, 1);
 	tilesContainer.appendChild(tile);
 }
+
+
+//buttons
+document.getElementById('startButton').addEventListener('click',()=>{
+	startTimer();
+});
+
+document.getElementById('resetButton').addEventListener('click',()=>{
+    window.location.reload();
+});
