@@ -115,6 +115,7 @@ for (let i = 0; i < tileCount; i++) {
 //buttons
 document.getElementById('startButton').addEventListener('click',()=>{
 	startTimer();
+	
 });
 
 document.getElementById('resetButton').addEventListener('click',()=>{
